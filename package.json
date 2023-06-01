@@ -1,0 +1,41 @@
+{
+  "name": "midjorney-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "type": "module",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "axios": "^1.4.0",
+    "config": "^3.3.9",
+    "cross-env": "^7.0.3",
+    "deepl-node": "^1.9.0",
+    "dotenv": "^16.1.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "0.0.1-security",
+    "node-dalle2": "^1.2.1",
+    "node-fetch": "^3.3.1",
+    "node-replicate": "^2.0.0",
+    "openai": "^3.2.1",
+    "telegraf": "^4.12.2",
+    "telegraf-session-local": "^2.1.1",
+    "translate": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon ./src/app.js",
+    "start": "cross-env NODE_ENV=production node ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/in0vik/soulJorney.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/in0vik/soulJorney/issues"
+  },
+  "homepage": "https://github.com/in0vik/soulJorney#readme"
+}

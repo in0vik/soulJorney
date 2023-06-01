@@ -1,1 +1,1 @@
-# soulJorney
+# soulJourney

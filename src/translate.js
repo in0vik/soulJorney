@@ -1,5 +1,6 @@
 import config from 'config';
 import * as deepl from 'deepl-node';
+import { DEEPL_KEY } from '../config/config.js';
 
 class Translator {
   constructor(apiKey) {
@@ -10,4 +11,4 @@ class Translator {
   }
 }
 
-export const translator = new Translator(config.get('DEEPL_KEY'));
+export const translator = new Translator(DEEPL_KEY);

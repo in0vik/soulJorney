@@ -1,8 +1,8 @@
 import { Configuration, OpenAIApi } from 'openai';
 import { Dalle } from "node-dalle2";
-import config from 'config';
 import { createReadStream } from 'fs';
 import fetch from "node-fetch";
+import { DALLE2_KEY, OPENAI_KEY } from '../config/config.js';
 globalThis.fetch = fetch
 
 
@@ -45,4 +45,4 @@ class OpenAI {
   
 }
 
-export const openai = new OpenAI(config.get('OPENAI_KEY'), config.get('DALLE2_KEY'));
+export const openai = new OpenAI(OPENAI_KEY, DALLE2_KEY);

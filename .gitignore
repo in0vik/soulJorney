@@ -135,6 +135,5 @@ dist
 config/default.json
 config/production.json
 voices/*.mp3
-
 src/dalle2.js
 .vercel

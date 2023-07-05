@@ -1,0 +1,22 @@
+FROM node:14
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+# ENV BOT_TOKEN=<your_bot_token>
+# ENV API_KEY=<your_api_key>
+
+ENV BOT_TOKEN="6157070059:AAE5coMcyMCiQzV5VQ53WeD1bRJh6V_q8ro"
+ENV OPENAI_KEY="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"
+ENV DALLE2_KEY="sess-3clL7nCNbhtyxzJnJBwkxXoRg7Hl4wGZP9ALU4YJ"
+ENV DEEPL_KEY="c50e1c8f-9e9f-2d9c-0e77-a59547fba5c3:fx"
+ENV PORT=3000
+
+EXPOSE $PORT
+
+CMD ["npm", "start"]

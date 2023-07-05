@@ -46,15 +46,20 @@ class OggConverter {
         url,
         responseType: 'stream',
       });
-      return new Promise((resolve) => {
+  
+      return new Promise((resolve, reject) => {
         const stream = createWriteStream(oggPath);
         response.data.pipe(stream);
         stream.on('finish', () => {
           resolve(oggPath); // Resolve with the output OGG file path
         });
+        stream.on('error', (error) => {
+          reject(error); // Reject with the error if any occurs during the stream
+        });
       });
     } catch (e) {
       console.log(`Error while creating OGG: ${e.message}`);
+      throw e; // Rethrow the error to be handled by the caller
     }
   }
 }

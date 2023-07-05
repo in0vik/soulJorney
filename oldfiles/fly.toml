@@ -7,10 +7,10 @@ app = "soul-journey"
 primary_region = "ams"
 
 [env]
-  BOT_TOKEN = "***REMOVED***"
-  DALLE2_KEY = "***REMOVED***"
-  DEEPL_KEY = "***REMOVED***"
-  OPENAI_KEY = "***REMOVED***"
+  BOT_TOKEN = "6157070059:AAE5coMcyMCiQzV5VQ53WeD1bRJh6V_q8ro"
+  DALLE2_KEY = "sess-3clL7nCNbhtyxzJnJBwkxXoRg7Hl4wGZP9ALU4YJ"
+  DEEPL_KEY = "c50e1c8f-9e9f-2d9c-0e77-a59547fba5c3:fx"
+  OPENAI_KEY = "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"
 
 [http_service]
   internal_port = 8080

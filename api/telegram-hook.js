@@ -34,15 +34,21 @@ Object.keys(models).forEach((modelName) => {
 bot.on(message('text'), async (ctx) => {
   try {
     const currentModel = await getUserCurrentModel(ctx.message.from.id);
-    await ctx.persistentChatAction(
-      'upload_photo',
-      async () => {
+    // await ctx.persistentChatAction(
+    //   'upload_photo',
+    //   async () => {
+        bot.telegram.sendChatAction(ctx.chat.id, 'upload_photo');
         const translatedText = await translator.translateToEnglish(ctx.message.text);
-        let imageUrl = await generateImage(currentModel, translatedText.text);
+        let imageUrl = [];
+        if (currentModel === models.dalle) {
+          // imageUrl = await openai.getImageDalle(translatedText.text);
+        } else {
+          imageUrl = await generateImage(currentModel, translatedText.text);
+        }
         await ctx.replyWithPhoto(imageUrl[0]);
-      },
-      { intervalDuration: 10000 }
-    );
+    //   },
+    //   { intervalDuration: 10000 }
+    // );
   } catch (err) {
     console.log(`Error while processing text message: ${err}`);
     await ctx.reply(code('Model currently unavailable, please try again later'));
@@ -55,28 +61,35 @@ bot.on(message('voice'), async (ctx) => {
     const currentModel = await getUserCurrentModel(ctx.message.from.id);
 
     // Show typing status while processing the message
-    await ctx.persistentChatAction(
-      'upload_photo',
-      async () => {
+    // await ctx.persistentChatAction(
+    //   'upload_photo',
+    //   async () => {
+      bot.telegram.sendChatAction(ctx.chat.id, 'upload_photo');
+      
         const link = await ctx.telegram.getFileLink(ctx.message.voice.file_id);
         const userId = String(ctx.message.from.id);
-        
+
         // Convert voice file to OGG format in base64
         const oggBase64 = await ogg.createBase64(link.href, userId);
-        
+
         // Convert OGG file to MP3 format buffer
         const mp3buffer = await ogg.toMp3Buffer(Buffer.from(oggBase64, 'base64'), userId);
         // Transcribe the MP3 file using OpenAI
         const text = await openai.transcription(mp3buffer);
-        
+
         // // Reply with the transcribed text
         await ctx.reply(code('🗣️ ' + text));
         const translatedText = await translator.translateToEnglish(text);
-        let imageUrl = await generateImage(currentModel, translatedText.text);
+        let imageUrl = [];
+        if (currentModel === models.dalle) {
+          // imageUrl = await openai.getImageDalle(translatedText.text);
+        } else {
+          imageUrl = await generateImage(currentModel, translatedText.text);
+        }
         await ctx.replyWithPhoto(imageUrl[0]);
-      },
-      { intervalDuration: 10000 }
-    );
+      // },
+      // { intervalDuration: 10000 }
+    // );
   } catch (err) {
     console.log(`Error while processing voice message: ${err}`);
   }

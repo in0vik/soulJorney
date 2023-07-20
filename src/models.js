@@ -4,6 +4,7 @@ export const models =
     stablediff: "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf",
     // vintedois: "22-hours/vintedois-diffusion:28cea91bdfced0e2dc7fda466cc0a46501c0edc84905b2120ea02e0707b967fd",
     kandinsky: "ai-forever/kandinsky-2:601eea49d49003e6ea75a11527209c4f510a93e2112c969d548fbb45b9c4f19f",
+    dalle: "dalle-ai/dalle:latest",
     // openjourney: "prompthero/openjourney:9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb",
     // edgeofreal: "mcai/edge-of-realism-v2.0:b218c128d5762c7a27c7e5e5942b9a51827133cdf1e6623e76d643039c106858",
     // babes: "mcai/babes-v2.0:e94d3df2fa57aeb76079369d57d5e8e2f2b087d4cec07b035125c0875304b4ad",
